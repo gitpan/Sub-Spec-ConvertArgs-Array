@@ -1,0 +1,61 @@
+NAME
+    Sub::Spec::ConvertArgs::Array - Convert hash arguments to array
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+     use Sub::Spec::ConvertArgs::Array;
+
+     my $res = convert_args_to_array(args=>\%args, spec=>$spec, ...);
+
+DESCRIPTION
+    This module provides convert_args_to_array() (and
+    gencode_convert_args_to_array(), upcoming). This module is used by,
+    among others, Sub::Spec::Wrapper.
+
+    This module's functions has Sub::Spec specs.
+
+FUNCTIONS
+    None are exported by default, but they are exportable.
+
+  convert_args_to_array(%args) -> [STATUS_CODE, ERR_MSG, RESULT]
+    Convert hash arguments to array.
+
+    Using information in sub spec's ~args~ clause (particularly the
+    ~arg_pos~ and ~arg_greedy~ arg type clauses), convert hash arguments to
+    array.
+
+    Example:
+
+    : my $spec = { : summary => 'Multiply 2 numbers (a & b)', : args_as =>
+    'array', args => { : a => ['num*' => {arg_pos=>0}], : b => ['num*' =>
+    {arg_pos=>1}], : } : }
+
+    then ~convert_args_to_array(args=>{a=>2, b=>3}, spec=>$spec)~ will
+    produce:
+
+    : [200, "OK", [2, 3]]
+
+    Returns a 3-element arrayref. STATUS_CODE is 200 on success, or an error
+    code between 3xx-5xx (just like in HTTP). ERR_MSG is a string containing
+    error message, RESULT is the actual result.
+
+    Arguments ("*" denotes required arguments):
+
+    *   args => *hash*
+
+    *   spec => *hash*
+
+SEE ALSO
+    Sub::Spec
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

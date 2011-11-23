@@ -14,7 +14,7 @@ meta-spec:
   version: 1.4
 name: Sub-Spec-ConvertArgs-Array
 requires:
-  Data::Sah::Util: 0
+  Data::Sah: 0
   Log::Any: 0
   Sub::Spec: 0.15
   Test::More: 0.96
@@ -22,4 +22,4 @@ requires:
 resources:
   homepage: http://search.cpan.org/dist/Sub-Spec-ConvertArgs-Array/
   repository: http://github.com/sharyanto/perl-Sub-Spec-ConvertArgs-Array
-version: 0.01
+version: 0.02

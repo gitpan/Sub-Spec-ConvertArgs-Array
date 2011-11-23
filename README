@@ -2,7 +2,7 @@ NAME
     Sub::Spec::ConvertArgs::Array - Convert hash arguments to array
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
      use Sub::Spec::ConvertArgs::Array;
@@ -43,9 +43,9 @@ FUNCTIONS
 
     Arguments ("*" denotes required arguments):
 
-    *   args => *hash*
+    *   args* => *hash*
 
-    *   spec => *hash*
+    *   spec* => *hash*
 
 SEE ALSO
     Sub::Spec

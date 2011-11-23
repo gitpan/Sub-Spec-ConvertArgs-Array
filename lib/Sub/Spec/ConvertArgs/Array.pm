@@ -5,18 +5,18 @@ use strict;
 use warnings;
 use Log::Any '$log';
 
-use Data::Sah::Util;
+use Data::Sah;
 
 use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(convert_args_to_array);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 our %SPEC;
 
 sub _parse_schema {
-    Data::Sah::Util::_parse_schema(@_);
+    Data::Sah::normalize_schema(@_);
 }
 
 $SPEC{convert_args_to_array} = {
@@ -98,7 +98,7 @@ Sub::Spec::ConvertArgs::Array - Convert hash arguments to array
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -149,9 +149,9 @@ Arguments (C<*> denotes required arguments):
 
 =over 4
 
-=item * B<args> => I<hash>
+=item * B<args>* => I<hash>
 
-=item * B<spec> => I<hash>
+=item * B<spec>* => I<hash>
 
 =back
 
